@@ -1,0 +1,17 @@
+{
+  "name": "shiftable-hapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^2.0.0",
+    "hapi": "^6.8.1",
+    "pg": "^3.4.4",
+    "sequelize": "^1.7.10"
+  }
+}
