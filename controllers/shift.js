@@ -7,8 +7,8 @@ exports.postShifts = function(req, res) {
   var shift = new Shift();
 
   // Set the shift properties that came from the POST data
-  shift.storeId = req.body.storeId;
-  shift.userId = req.body.userId;
+  shift.storeId = req.user._storeId;
+  shift.userId = req.user._id;
   shift.startOfShift = req.body.startOfShift;
   shift.endOfShift = req.body.endOfShift;
 
@@ -35,7 +35,7 @@ exports.getShifts = function(req, res) {
 // Create endpoint /api/shifts/:shift_id for GET
 exports.getShift = function(req, res) {
   // Use the shift model to find a specific shift
-  Shift.findById({ userId: req.user._id, _id: req.params.beer_id }, function(err, shift) {
+  Shift.find({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
     if (err)
       res.send(err);
 
@@ -46,12 +46,13 @@ exports.getShift = function(req, res) {
 // Create endpoint /api/shifts/:shift_id for PUT
 exports.putShift = function(req, res) {
   // Use the shift model to find a specific shift
-  Shift.findById({ userId: req.user._id, _id: req.params.beer_id }, function(err, shift) {
+  Shift.update({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
     if (err)
       res.send(err);
 
     // Update the existing shift quantity
-    shift.quantity = req.body.quantity;
+    shift.startOfShift = req.body.startOfShift;
+    shift.endOfShift = req.body.endOfShift;
 
     // Save the shift and check for errors
     shift.save(function(err) {
@@ -66,7 +67,7 @@ exports.putShift = function(req, res) {
 // Create endpoint /api/shifts/:shift_id for DELETE
 exports.deleteShift = function(req, res) {
   // Use the shift model to find a specific shift and remove it
-  Shift.findByIdAndRemove({ userId: req.user._id, _id: req.params.beer_id }, function(err) {
+  Shift.remove({ userId: req.user._id, _id: req.params.shift_id }, function(err) {
     if (err)
       res.send(err);
 

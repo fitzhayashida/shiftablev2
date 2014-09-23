@@ -1,0 +1,14 @@
+{
+    "name": "shiftable",
+    "version": "1.0.0",
+    "dependencies": {
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "animate.css": "latest",
+        "angular": "latest",
+        "fullcalendar": "latest",
+        "angular-ui-calendar": "latest",
+        "angular-ui-bootstrap": "latest",
+        "angular-ui-router": "0.2.10"
+    }
+}

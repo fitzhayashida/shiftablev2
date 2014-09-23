@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="shiftableApp" id="top">
+<head>
+  <meta charset="UTF-8">
+  <base href="/">
+
+  <title>Shiftable</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/fullcalendar/fullcalendar.css">
+  <link rel="stylesheet" href="libs/fullcalendar/fullcalendar.print.css">
+  <link rel="stylesheet" href="libs/animate.css/animate.min.css">
+ 
+
+  <!-- JS -->
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/jquery-ui/ui/jquery-ui.min.js"></script>
+  <script src="libs/moment/min/moment.min.js"></script>
+  <script src="libs/angular/angular.js"></script>
+  <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="libs/fullcalendar/fullcalendar.js"></script>
+  <script src="libs/fullcalendar/gcal.js"></script>
+  <script src="libs/angular-ui-calendar/src/calendar.js"></script>
+
+  
+
+  <!-- ANGULAR CUSTOM -->
+
+  <script src="javascript/app.js"></script>
+  <script src="javascript/services/ShiftService.js"></script>
+  <script src="javascript/services/UserService.js"></script>
+  <script src="javascript/controllers/MainControl.js"></script>
+  <script src="javascript/controllers/ShiftControl.js"></script>
+  <script src="javascript/controllers/UserControl.js"></script>
+
+</head>
+
+
+<body ng-controller="MainController">
+<div class="container">
+
+    <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+    <ul class="nav navbar-nav">
+      <li><a href="/shifts">Shifts</a></li>
+      <li><a href="/users">Users</a></li>
+    </ul>
+
+
+    <!-- angular templating: this is where content will be injected -->
+    <div ng-view></div>
+
+
+
+</div>
+</body>
+</html>
+
+
