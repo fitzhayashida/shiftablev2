@@ -1,28 +1,75 @@
-var shiftableApp = angular.module('shiftableApp', ['ngRoute', 'ui.bootstrap', 'ui.calendar']);
-
-
-shiftableApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
-$routeProvider
-
-  // home page
-  .when('/', {
-    templateUrl: '/views/main.html',
-    controller: 'MainController'
-  })
-
-  // shifts page that will use the ShiftController
-  .when('/shifts', {
-    templateUrl: '/views/shift.html',
-    controller: 'ShiftController'
-  })
-
-  // users page that will use the UserControl
-  .when('/users', {
-    templateUrl: '/views/user.html',
-    controller: 'UserController'  
+$(function(){
+  $(".myscheduler").dhx_scheduler({
+    xml_date:"%Y-%m-%d %H:%i",
+    date:new Date(),
+    mode:"month"
   });
 
-$locationProvider.html5Mode(true);
+  scheduler.init('scheduler', new Date(), "month");
+  scheduler.templates.xml_date = function(value){
+    return new Date(value);
+  };
+  scheduler.load('/api/shifts', 'json');
+    
 
-}]);
+  var add_event = function(id,ev){
+
+    var startDate = moment(ev.start_date).format();
+    var endDate = moment(ev.end_date).format();
+    var text = ev.text;
+
+    $.ajax({
+      url: '/api/shifts',
+      type: 'POST',
+      cache: false,
+      data: { start_date: startDate, end_date: endDate, text: text },
+      success: function(data) {
+        console.log('success');
+      },
+      error: function() {
+        console.log('error');
+      },
+    });
+  };
+
+  var update_event = function(id,ev){
+
+    var startDate = moment(ev.start_date).format();
+    var endDate = moment(ev.end_date).format();
+    var text = ev.text;
+
+    $.ajax({
+      url: '/api/shifts/' + id,
+      type: 'PUT',
+      cache: false,
+      data: { start_date: startDate, end_date: endDate, text: text },
+      success: function(data) {
+        console.log('success');
+      },
+      error: function() {
+        console.log('error');
+      },
+    });
+  };
+
+  var delete_event = function(id,ev){
+    $.ajax({
+      url: '/api/shifts/' + id,
+      type: 'DELETE',
+      cache: false,
+      success: function(data) {
+        console.log('success');
+      },
+      error: function() {
+        console.log('error');
+      },
+    });
+  };
+  
+  scheduler.attachEvent("onEventAdded", add_event);
+  scheduler.attachEvent("onEventChanged", update_event);
+  scheduler.attachEvent("onEventDeleted", delete_event);
+
+  // scheduler.changeEventId
+
+});
