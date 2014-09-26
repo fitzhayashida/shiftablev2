@@ -1,6 +1,8 @@
 // Get the packages we need
 var express = require('express');
+var session = require('express-session')
 var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var exphbs  = require('express-handlebars');
@@ -20,8 +22,13 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use(cookieParser());
+app.use(session({ secret: 'asdfasdf123187odfas893' }));
+
 // Use the passport package in our application
 app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Use environment defined port or 3000
 var port = process.env.PORT || 3000;
@@ -88,8 +95,8 @@ app.post('/local-reg', passport.authenticate('local-signup', {
 );
 
 //sends the request through our local login/signin strategy, and if successful takes user to homepage, otherwise returns then to signin page
-app.post('/login', passport.authenticate('local-signin', { 
-  successRedirect: '/',
+app.post('/login', passport.authenticate('local', { 
+  successRedirect: '/users',
   failureRedirect: '/signin'
   })
 );

@@ -1,5 +1,5 @@
 {
-  "name": "shiftable-hapi",
+  "name": "shiftable",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,12 +11,13 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.8.2",
+    "cookie-parser": "^1.3.3",
     "express": "^4.9.3",
+    "express-session": "^1.8.2",
     "handlebars": "^2.0.0",
     "mongoose": "^3.8.16",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2",
-    "pg": "^3.4.4",
-    "sequelize": "^1.7.10"
+    "passport-local": "^1.0.0"
   }
 }

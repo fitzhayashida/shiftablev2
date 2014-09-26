@@ -14,6 +14,7 @@ $(function(){
 
   var add_event = function(id,ev){
 
+    var userId = ev.userId;
     var startDate = moment(ev.start_date).format();
     var endDate = moment(ev.end_date).format();
     var text = ev.text;
@@ -22,9 +23,9 @@ $(function(){
       url: '/api/shifts',
       type: 'POST',
       cache: false,
-      data: { start_date: startDate, end_date: endDate, text: text },
+      data: { userId: userId, start_date: startDate, end_date: endDate, text: text },
       success: function(data) {
-        console.log('success');
+        console.log(data);
       },
       error: function() {
         console.log('error');

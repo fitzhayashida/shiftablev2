@@ -7,7 +7,7 @@ exports.postShifts = function(req, res) {
   var shift = new Shift();
 
   // Set the shift properties that came from the POST data
-  shift.id = req.body.id;
+  shift.userId = req.user._id;
   shift.text = req.body.text;
   shift.start_date = req.body.start_date;
   shift.end_date = req.body.end_date;
@@ -18,6 +18,7 @@ exports.postShifts = function(req, res) {
       res.send(err);
 
     res.json({ message: 'Shift has been created!', data: shift });
+    console.log(shift);
   });
 };
 
@@ -52,8 +53,10 @@ exports.putShift = function(req, res) {
   Shift.findOne({ _id: req.params.shift_id }, function(err, shift) {
     if (err)
       res.send(err);
+
     console.log(shift);
-    // Update the existing shift quantity
+
+    // Update the existing shift info
     shift.start_date = req.body.start_date;
     shift.end_date = req.body.end_date;
     shift.text = req.body.text;
@@ -72,7 +75,7 @@ exports.putShift = function(req, res) {
 exports.deleteShift = function(req, res) {
   // Use the shift model to find a specific shift and remove it
 
-  Shift.remove({ _id: req.params.shift_id }, function(err) {
+  Shift.remove({  _id: req.params.shift_id }, function(err) {
     if (err)
       res.send(err);
 

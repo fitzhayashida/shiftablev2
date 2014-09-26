@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 // Define our shift schema
 var ShiftSchema   = new mongoose.Schema({
-  id: { 
+  userId: { 
     type: String
     // required: true 
   },
