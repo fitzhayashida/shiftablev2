@@ -15,12 +15,14 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new LocalStrategy(
   function(username, password, callback) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return callback(err); }
 
+    User.findOne( { username: username }, function (err, user) {
+      // user = user[0];
+      if (err) { return callback(err); }
       // No user found with that email
       if (!user) { return callback(null, false); }
 
+      // user = user[0];
       // Make sure the password is correct
       user.verifyPassword(password, function (err, isMatch) {
         if (err) { return callback(err); }
@@ -35,6 +37,8 @@ passport.use(new LocalStrategy(
   }
 ));
 
-exports.isAuthenticated = passport.authenticate('local', { failureRedirect: '/signin' });
+
+
+exports.isAuthenticated = passport.authenticate('local', { failureRedirect: '/users' });
 
 

@@ -57,7 +57,11 @@ router.route('/shifts/:shift_id')
 // Create endpoint handlers for /users
 router.route('/users')
   .post(userController.postUsers)
-  .get(authController.isAuthenticated, userController.getUsers);
+  .get(userController.getUsers);
+
+
+// router.route('/users/:user_id')
+//   .delete(userController.deleteUser);
 
 
 // set the static files location /public/img will be /img for users
@@ -67,8 +71,8 @@ app.use(express.static(__dirname + '/public'));
 app.use('/api', router);
 
 
-//===============ROUTES=================
-//displays our homepage
+// //===============ROUTES=================
+// //displays our homepage
 app.get('/', function (req, res){
   res.render('home');
 });
@@ -97,18 +101,18 @@ app.post('/local-reg', passport.authenticate('local-signup', {
 //sends the request through our local login/signin strategy, and if successful takes user to homepage, otherwise returns then to signin page
 app.post('/login', passport.authenticate('local', { 
   successRedirect: '/users',
-  failureRedirect: '/signin'
+  failureRedirect: '/'
   })
 );
 
 //logs user out of site, deleting them from the session, and returns to homepage
-app.get('/logout', function(req, res){
-  var name = req.user.username;
-  console.log("LOGGIN OUT " + req.user.username)
-  req.logout();
-  res.redirect('/');
-  req.session.notice = "You have successfully been logged out " + name + "!";
-});
+// app.get('/logout', function(req, res){
+//   var name = req.user.username;
+//   console.log("LOGGIN OUT " + req.user.username)
+//   req.logout();
+//   res.redirect('/');
+//   req.session.notice = "You have successfully been logged out " + name + "!";
+// });
 
 // Start the server
 app.listen(port);

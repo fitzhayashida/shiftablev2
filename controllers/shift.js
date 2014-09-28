@@ -8,6 +8,9 @@ exports.postShifts = function(req, res) {
 
   // Set the shift properties that came from the POST data
   shift.userId = req.user._id;
+  shift.company = req.user.company;
+  shift.storeAddress = req.user.storeAddress;
+  shift.role = req.user.role;
   shift.text = req.body.text;
   shift.start_date = req.body.start_date;
   shift.end_date = req.body.end_date;
@@ -17,8 +20,7 @@ exports.postShifts = function(req, res) {
     if (err)
       res.send(err);
 
-    res.json({ message: 'Shift has been created!', data: shift });
-    console.log(shift);
+    res.json(shift);
   });
 };
 
@@ -37,7 +39,6 @@ exports.getShifts = function(req, res) {
 
 // Create endpoint /api/shifts/:shift_id for GET
 exports.getShift = function(req, res) { 
-  console.log('req', req);
   // Use the shift model to find a specific shift
   Shift.find({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
     if (err)
@@ -50,12 +51,11 @@ exports.getShift = function(req, res) {
 // Create endpoint /api/shifts/:shift_id for PUT
 exports.putShift = function(req, res) {
   // Use the shift model to find a specific shift
-  Shift.findOne({ _id: req.params.shift_id }, function(err, shift) {
-    if (err)
+  
+  Shift.findOne({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
+    if (err) {
       res.send(err);
-
-    console.log(shift);
-
+    }
     // Update the existing shift info
     shift.start_date = req.body.start_date;
     shift.end_date = req.body.end_date;
@@ -63,10 +63,11 @@ exports.putShift = function(req, res) {
 
     // Save the shift and check for errors
     shift.save(function(err) {
-      if (err)
+      if (err) {
         res.send(err);
-
+      } else {
       res.json(shift);
+    }
     });
   });
 };
@@ -75,11 +76,12 @@ exports.putShift = function(req, res) {
 exports.deleteShift = function(req, res) {
   // Use the shift model to find a specific shift and remove it
 
-  Shift.remove({  _id: req.params.shift_id }, function(err) {
-    if (err)
+  Shift.remove({ _id: req.params.shift_id }, function(err) {
+    if (err) {
       res.send(err);
-
-    res.json({ message: 'Shift has been removed!' });
-
+    } else {
+      res.json("Shift successfully deleted!");
+    }
+    
   });
 };
