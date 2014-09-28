@@ -28,6 +28,9 @@ var ShiftSchema   = new mongoose.Schema({
   end_date: {
     type: Date
     // required: true
+  },
+  state: {
+    type: String
   }
 });
 
