@@ -6,9 +6,7 @@ var map = L.mapbox.map('map', 'examples.map-i86nkdio')
 map.attributionControl
     .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');
 
-// Create a Foursquare developer account: https://developer.foursquare.com/
-// NOTE: CHANGE THESE VALUES TO YOUR OWN:
-// Otherwise they can be cycled or deactivated with zero notice.
+
 var CLIENT_ID = 'N5JGWBW3KJR0BVOS5LMQKCUT5X4REH5OO3HGFPTP0VF1P55V';
 var CLIENT_SECRET = '234DMM2HV3ZACKCMUH1V5PODND052JR3I2ZTPUQKFDDLLFVB';
 

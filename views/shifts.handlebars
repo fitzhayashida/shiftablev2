@@ -2,6 +2,13 @@
 
 <h1>Shifts to Give Away</h1>
 
+<script id="shift-template" type="text/x-handlebars-template">
+    <ul>
+        {{#each shift}}
+            <li>{{username}}</li>
+        {{/each}}
+    </ul>
+</script>
 
 </div>
 <div id='map' style="height=300px; width=300px"></div>
