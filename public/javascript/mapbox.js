@@ -1,7 +1,14 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoidGVyZXNhdG8iLCJhIjoiVWVQcjhJSSJ9.7oafI4-yF63mwYefbm7VkQ';
 
-var map = L.mapbox.map('map', 'examples.map-h67hf2ic').setView([49.88, -97.15], 4);
-    // .addControl(L.mapbox.geocoderControl('mapbox.places-v1'));
+var map = L.mapbox.map('map', 'examples.map-h67hf2ic', {
+  doubleClickZoom: false
+})
+.setView([49.88, -97.15], 4)
+.on('dblclick', function(e) {
+  // Zoom exactly to each double-clicked point
+  map.setView(e.latlng, map.getZoom() + 1);
+});
+
 
 // Credit Foursquare for their wonderful data
 map.attributionControl
@@ -34,7 +41,7 @@ $.getJSON(API_ENDPOINT
     .replace('QUERY', QUERY), function(result, status) {
 
     if (status !== 'success') return alert('Request to Foursquare failed');
-
+    
     // Transform each venue result into a marker on the map.
     for (var i = 0; i < result.response.venues.length; i++) {
       var venue = result.response.venues[i];
@@ -47,10 +54,11 @@ $.getJSON(API_ENDPOINT
           })
         })
       .bindPopup(
-        '<strong><a href="https://foursquare.com/v/' + venue.id + '">' +
-        venue.name + '<br>' + venue.location.address + '<br>' + venue.location.city +
-         " " + venue.location.state + '</a></strong>')
+        '<strong><a href="https://foursquare.com/v/' + venue.id + '">' + venue.name + '</a></strong>' +
+        '<br><a style="cursor:pointer;" onClick="document.getElementById("address").value="' + venue.location.address +'";">' + venue.location.address + '</a><br>' + venue.location.city +
+         " " + venue.location.state )
         .addTo(foursquarePlaces);
     }
 
 });
+
