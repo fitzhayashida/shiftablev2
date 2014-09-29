@@ -1,27 +1,175 @@
 html, body {
-      margin: 0px;
-      padding: 0px;
-      height: 100%;
-      overflow: hidden;
-    }
+
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
 #details{
   padding:5px;
 }
+
 #details input,   #details textarea{
   width:250px;
   padding:5px;
-  
 }
+
 #details label{
   display:block;
 }
+
 #details textarea{
   height:50px;
   padding:10px;
 }
 
-#map { 
-  position:relative; 
-  height: 200px;
-  width: 200px;
+#map {  
+  height: 50em;
+  width: 45em;
 }
+
+.navbar.navbar-default{
+  z-index: 4;
+}
+
+#local{
+  margin-left: 23em;
+}
+
+#phone{
+  margin-left: 67%;
+  max-width: 100%;
+  z-index: 999;
+  position: relative;
+  display: block;
+  margin-bottom: -10em;
+  height: 35em;
+}
+
+.content-subhead{
+  text-align: center;
+  height: 0em;
+  display: block;
+  width: 100%;
+  font-family: Indie Flower;
+  font-size: 3em;
+}
+
+.title{
+  font-family: Indie Flower;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+video#bgvid {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background: url(Miniature-Vancouver.jpg) no-repeat;
+  background-size: cover;
+}
+
+/*===============================================================*/
+.splash-head{
+  margin-top: -2em;
+  height: 100%;
+  width: 38%;
+  margin-left: 7em;
+  border: none;
+}
+
+#shiftlogo{
+  max-width: 100%;
+}
+
+.splash-head-text{
+  font-family: Indie Flower;
+  font-size: 1.50em;
+  margin-left: -0.75em;
+  margin-top: -0.2em;
+  color: white;
+  max-width: 100%;
+}
+
+.splash-container{
+  width: 100%;
+  height: 100%;
+  background-repeat: none;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  position: absolute !important;
+}
+
+.splash{
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 10em; left: 0; bottom: 0; right: 0;
+  text-align: center;
+}
+
+.login-splash{
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 25em; left: 0; bottom: 0; right: 0;
+  text-align: center;
+}
+#shiftlogo{
+  position: relative;
+  margin: 0 auto;
+}
+
+#whiteshiftlogo{
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.pure-g{
+  display: inline-block;
+}
+
+.shifts{
+  margin-top: 4em;
+  width: 100%;
+}
+
+.pure-form{
+  display: inline-block;
+  position: relative;
+  margin-top: -4.5em;
+}
+
+.pure-checkbox{
+  display: block;
+}
+
+#loginbutton{
+
+}
+
+.login-form{
+
+}
+
+.login-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+.login{
+  border:none;
+  font-size: 40%;
+  line-height: 0em;
+  display: inline-block;
+  margin-top: 7em;
+}
+
+

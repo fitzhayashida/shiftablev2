@@ -7,9 +7,19 @@ var ShiftSchema   = new mongoose.Schema({
     type: String
     // required: true 
   },
+  company: {
+    type: String,
+    required: true
+  },
+  storeAddress: {
+    street: { type: String, required: true },
+    city: { type: String, required: true },
+    province: { type: String, required: true },
+    postalCode: { type: String, required: true }
+  },
   text: { 
     type: String
-    // required: true 
+    required: true 
   },
   start_date: { 
     type: Date

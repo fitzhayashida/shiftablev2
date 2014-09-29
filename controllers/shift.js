@@ -7,7 +7,10 @@ exports.postShifts = function(req, res) {
   var shift = new Shift();
 
   // Set the shift properties that came from the POST data
-  shift.id = req.body.id;
+  shift.userId = req.user._id;
+  shift.company = req.user.company;
+  shift.storeAddress = req.user.storeAddress;
+  shift.role = req.user.role;
   shift.text = req.body.text;
   shift.start_date = req.body.start_date;
   shift.end_date = req.body.end_date;
@@ -17,7 +20,7 @@ exports.postShifts = function(req, res) {
     if (err)
       res.send(err);
 
-    res.json({ message: 'Shift has been created!', data: shift });
+    res.json(shift);
   });
 };
 
@@ -49,24 +52,26 @@ exports.getShift = function(req, res) {
 // Create endpoint /api/shifts/:shift_id for PUT
 exports.putShift = function(req, res) {
   // Use the shift model to find a specific shift
-  Shift.findOne({ _id: req.params.shift_id }, function(err, shift) {
-    if (err)
+  Shift.findOne({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
+    if (err) {
       res.send(err);
-    console.log(shift);
-    // Update the existing shift quantity
+    }
+    // Update the existing shift info
     shift.start_date = req.body.start_date;
     shift.end_date = req.body.end_date;
     shift.text = req.body.text;
 
     // Save the shift and check for errors
     shift.save(function(err) {
-      if (err)
+      if (err) {
         res.send(err);
-
+      } else {
       res.json(shift);
+    }
     });
   });
 };
+
 
 // Create endpoint /api/shifts/:shift_id for DELETE
 exports.deleteShift = function(req, res) {
