@@ -30,7 +30,6 @@ exports.postUsers = function(req, res) {
     }
   });
 };
-
 // Create endpoint /api/users for GET
 exports.getUsers = function(req, res) {
   User.find({}, function(err, users) {
@@ -41,6 +40,7 @@ exports.getUsers = function(req, res) {
   });
 };
 
+
 // Create endpoint /api/users/:user_id for DELETE
 exports.deleteUser = function(req, res) {
   User.remove({ _id: req.params.user_id }, function(err) {
@@ -49,6 +49,6 @@ exports.deleteUser = function(req, res) {
     } else {
       res.json("User successfully deleted!");
     }
-    
   });
 };
+

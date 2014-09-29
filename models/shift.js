@@ -18,8 +18,7 @@ var ShiftSchema   = new mongoose.Schema({
     postalCode: { type: String, required: true }
   },
   text: { 
-    type: String,
-    required: true 
+    type: String
   },
   start_date: { 
     type: Date

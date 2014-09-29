@@ -51,7 +51,6 @@ exports.getShift = function(req, res) {
 // Create endpoint /api/shifts/:shift_id for PUT
 exports.putShift = function(req, res) {
   // Use the shift model to find a specific shift
-  
   Shift.findOne({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
     if (err) {
       res.send(err);
@@ -71,6 +70,7 @@ exports.putShift = function(req, res) {
     });
   });
 };
+
 
 // Create endpoint /api/shifts/:shift_id for DELETE
 exports.deleteShift = function(req, res) {

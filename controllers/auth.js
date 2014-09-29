@@ -17,12 +17,11 @@ passport.use(new LocalStrategy(
   function(username, password, callback) {
 
     User.findOne( { username: username }, function (err, user) {
-      // user = user[0];
+
       if (err) { return callback(err); }
       // No user found with that email
       if (!user) { return callback(null, false); }
 
-      // user = user[0];
       // Make sure the password is correct
       user.verifyPassword(password, function (err, isMatch) {
         if (err) { return callback(err); }

@@ -31,7 +31,7 @@ app.use(passport.session());
 
 
 // Use environment defined port or 3000
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3005;
 
 // Configure express to use handlebars templates
 var hbs = exphbs.create({
