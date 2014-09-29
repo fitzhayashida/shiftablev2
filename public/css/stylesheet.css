@@ -1,17 +1,9 @@
 html, body {
-<<<<<<< HEAD
-      margin: 0px;
-      padding: 0px;
-      height: 100%;
-    }
-=======
-
   margin: 0px;
   padding: 0px;
   height: 100%;
 }
 
->>>>>>> frontend
 #details{
   padding:5px;
 }
@@ -78,7 +70,6 @@ video#bgvid {
   background-size: cover;
 }
 
-/*===============================================================*/
 .splash-head{
   margin-top: -2em;
   height: 100%;
@@ -179,4 +170,8 @@ video#bgvid {
   margin-top: 7em;
 }
 
-
+#map { 
+  position:relative; 
+  height: 1000px;
+  width: 1000px;
+}

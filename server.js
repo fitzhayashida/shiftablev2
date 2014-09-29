@@ -59,7 +59,6 @@ router.route('/users')
   .post(userController.postUsers)
   .get(userController.getUsers);
 
-
 // router.route('/users/:user_id')
 //   .delete(userController.deleteUser);
 
@@ -69,7 +68,6 @@ app.use(express.static(__dirname + '/public'));
 
 // Register all our routes with /api
 app.use('/api', router);
-
 
 // //===============ROUTES=================
 // //displays our homepage
@@ -92,8 +90,8 @@ app.get('/signin', function(req, res){
 });
 
 //sends the request through our local signup strategy, and if successful takes user to homepage, otherwise returns then to signin page
-app.post('/local-reg', passport.authenticate('local-signup', {
-  successRedirect: '/',
+app.post('/register', passport.authenticate('local-signup', {
+  successRedirect: '/users',
   failureRedirect: '/signin'
   })
 );
@@ -101,18 +99,19 @@ app.post('/local-reg', passport.authenticate('local-signup', {
 //sends the request through our local login/signin strategy, and if successful takes user to homepage, otherwise returns then to signin page
 app.post('/login', passport.authenticate('local', { 
   successRedirect: '/users',
-  failureRedirect: '/'
+  failureRedirect: '/signin'
   })
 );
 
 //logs user out of site, deleting them from the session, and returns to homepage
-// app.get('/logout', function(req, res){
-//   var name = req.user.username;
-//   console.log("LOGGIN OUT " + req.user.username)
-//   req.logout();
-//   res.redirect('/');
-//   req.session.notice = "You have successfully been logged out " + name + "!";
-// });
+app.get('/logout', function(req, res){
+  var name = req.user.username;
+  console.log("Logging out" + req.user.username)
+  req.logout();
+  res.redirect('/');
+  req.session.notice = "You have successfully been logged out " + name + "!";
+});
+
 
 // Start the server
 app.listen(port);
