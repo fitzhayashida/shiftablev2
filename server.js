@@ -1,6 +1,6 @@
 // Get the packages we need
 var express = require('express');
-var session = require('express-session')
+var session = require('express-session');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
