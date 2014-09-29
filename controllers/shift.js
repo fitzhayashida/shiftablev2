@@ -14,6 +14,7 @@ exports.postShifts = function(req, res) {
   shift.text = req.body.text;
   shift.start_date = req.body.start_date;
   shift.end_date = req.body.end_date;
+  shift.state = "available";
 
   // Save the shift and check for errors
   shift.save(function(err) {
