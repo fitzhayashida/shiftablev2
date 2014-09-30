@@ -36,22 +36,29 @@ html, body {
 }
 
 #phone{
-  margin-left: 67%;
+  margin-left: 50%;
   max-width: 100%;
   z-index: 999;
-  position: relative;
+  position: absolute;
   display: block;
-  margin-bottom: -10em;
-  height: 35em;
+  top: -90px;
+  right: 0px;
+  height: 600px;
+}
+
+.mobile{
+  font-family: Indie Flower;
+  font-size: 1em;
+  color: white;
 }
 
 .content-subhead{
   text-align: center;
-  height: 0em;
+  height: 8em;
   display: block;
   width: 100%;
-  font-family: Indie Flower;
   font-size: 3em;
+  position: relative;
 }
 
 .title{
@@ -62,11 +69,10 @@ html, body {
   margin-bottom: 1em;
 }
 
-video#bgvid {
+video#bgvid, iframe#bgvid {
   position: fixed; right: 0; bottom: 0;
   min-width: 100%; min-height: 100%;
   width: auto; height: auto; z-index: -100;
-  background: url(Miniature-Vancouver.jpg) no-repeat;
   background-size: cover;
 }
 
