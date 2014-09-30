@@ -48,19 +48,31 @@
 
     <form id="local-reg" class="form-inline collapse" action="/local-reg" role="form" method="post">
       <div class="form-group">
-        <input type="text" name="username" class="form-control" placeholder="New Username" style="margin-bottom: 0.25em;" />
+        <input type="text" name="username" class="form-control" name="username" placeholder="Username" style="margin-bottom: 0.25em;" />
       </div>
       <div class="form-group">
-        <input type="password" name="password"class="form-control"  placeholder="New Password" style="margin-bottom: 0.25em;" />
+        <input type="text" name="username" class="form-control" name="first" placeholder="First Name" style="margin-bottom: 0.25em;" />
+      </div>
+       <div class="form-group">
+        <input type="text" name="username" class="form-control" name="last" placeholder="Last Name" style="margin-bottom: 0.25em;" />
       </div>
       <div class="form-group">
-        <input type="text" name="company" class="form-control" placeholder="Company" style="margin-bottom: 0.25em;" />
+        <input type="password" name="password"class="form-control"  name="password" placeholder="Password" style="margin-bottom: 0.25em;" />
       </div>
       <div class="form-group">
-        <input type="text" name="city" class="form-control" placeholder="City" style="margin-bottom: 0.25em;" />
+        <input type="text" name="company" class="form-control" name="company" placeholder="Company" style="margin-bottom: 0.25em;" />
       </div>
       <div class="form-group">
-        <input type="text" name="address" class="form-control" placeholder="Address" style="margin-bottom: 0.25em;" />
+        <input type="text" name="city" class="form-control" name="city" placeholder="City" style="margin-bottom: 0.25em;" />
+      </div>
+      <div class="form-group">
+        <input type="text" id="address" name="address" class="form-control" name="address" placeholder="Address" style="margin-bottom: 0.25em;" />
+      </div>
+      <div class="form-group">
+        <input type="text" name="address" class="form-control" name="state" placeholder="Province" style="margin-bottom: 0.25em;" />
+      </div>
+      <div class="form-group">
+        <input type="text" name="address" class="form-control" name="role" placeholder="Role" style="margin-bottom: 0.25em;" />
       </div>
       <div class="form-group" id="map" style="height:200px; width: 200px"></div>
       <div>

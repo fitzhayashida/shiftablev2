@@ -55,7 +55,7 @@ $.getJSON(API_ENDPOINT
         })
       .bindPopup(
         '<strong><a href="https://foursquare.com/v/' + venue.id + '">' + venue.name + '</a></strong>' +
-        '<br><a style="cursor:pointer;" onClick="document.getElementById("address").value="' + venue.location.address +'";">' + venue.location.address + '</a><br>' + venue.location.city +
+        '<br><a style="cursor:pointer;" onClick="document.getElementById(&quot;address&quot;).value=&quot;' + venue.location.address +'&quot;;">' + venue.location.address + '</a><br>' + venue.location.city +
          " " + venue.location.state )
         .addTo(foursquarePlaces);
     }

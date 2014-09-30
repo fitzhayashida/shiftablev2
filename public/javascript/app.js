@@ -26,7 +26,7 @@ $(function(){
       dataType: "json",
       data: { userId: userId, start_date: startDate, end_date: endDate, text: text },
       success: function(data) {
-        console.log('success' + '' + id);
+        console.log('success' + ' ' + id);
       },
       error: function() {
         console.log('error');
@@ -77,7 +77,5 @@ $(function(){
   scheduler.attachEvent("onEventAdded", add_event);
   scheduler.attachEvent("onEventChanged", update_event);
   scheduler.attachEvent("onEventDeleted", delete_event);
-
-  // scheduler.changeEventId
 
 });

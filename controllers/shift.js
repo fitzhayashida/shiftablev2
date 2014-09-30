@@ -14,14 +14,15 @@ exports.postShifts = function(req, res) {
   shift.text = req.body.text;
   shift.start_date = req.body.start_date;
   shift.end_date = req.body.end_date;
-  shift.state = "available";
 
+  console.log(shift);
   // Save the shift and check for errors
   shift.save(function(err) {
-    if (err)
+    if (err){
       res.send(err);
-
-    res.json(shift);
+    } else {
+      res.json(shift);
+    }
   });
 };
 

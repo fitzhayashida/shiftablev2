@@ -31,7 +31,7 @@ app.use(passport.session());
 
 
 // Use environment defined port or 3000
-var port = process.env.PORT || 3005;
+var port = process.env.PORT || 3000;
 
 // Configure express to use handlebars templates
 var hbs = exphbs.create({
@@ -81,7 +81,7 @@ app.get('/shifts', function (req, res){
 });
 
 app.get('/users', function (req, res){
-  res.render('user');
+  res.render('user', { user: req.user });
 });
 
 //displays our signup page
@@ -90,7 +90,7 @@ app.get('/signin', function(req, res){
 });
 
 //sends the request through our local signup strategy, and if successful takes user to homepage, otherwise returns then to signin page
-app.post('/register', passport.authenticate('local-signup', {
+app.post('/local-reg', passport.authenticate('local-signup', {
   successRedirect: '/users',
   failureRedirect: '/signin'
   })
