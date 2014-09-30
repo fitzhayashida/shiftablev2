@@ -7,12 +7,12 @@
 </script>
 
 <script id="shift-template" type="text/x-handlebars-template">
-    <p>test={{test}}</p>
-    <p>test2={{test2}}</p>
+    <p>test=\{{test}}</p>
+    <p>test2=\{{test2}}</p>
     <ul>
-        {{#each shift}}
-            <li>{{userId}}</li>
-        {{/each}}
+        \{{#each shift}}
+            <li>\{{userId}}</li>
+        \{{/each}}
     </ul>
 </script>
 
@@ -43,8 +43,6 @@ var template = Handlebars.compile(source);
         var html = template2({
           name: "Chris"
         });
-        debugger;
-
 
         console.log('successful response from api');
         console.log(data);
