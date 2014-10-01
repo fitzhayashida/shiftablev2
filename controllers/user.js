@@ -16,7 +16,8 @@ exports.postUsers = function(req, res) {
       street: req.body.street,
       city: req.body.city,
       province: req.body.province,
-      postalCode: req.body.postalCode
+      lat: req.body.lat,
+      lng: req.body.lng
     },
     role: req.body.role,
     password: req.body.password
@@ -26,7 +27,7 @@ exports.postUsers = function(req, res) {
     if (err){
       res.send(err);
     } else {
-      res.json({ message: 'User successfully created' });
+      res.redirect('/users');
     }
   });
 };

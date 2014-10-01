@@ -22,11 +22,6 @@ html, body {
   padding:10px;
 }
 
-#map {  
-  height: 50em;
-  width: 45em;
-}
-
 .navbar.navbar-default{
   z-index: 4;
 }
@@ -171,7 +166,7 @@ video#bgvid {
 }
 
 #map { 
-  position:relative; 
+  position: relative;
   height: 1000px;
   width: 1000px;
 }

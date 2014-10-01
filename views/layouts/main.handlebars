@@ -22,12 +22,10 @@
   <script src="/libs/moment/moment.js" type="text/javascript" charset="utf-8"></script>
   <script src="/libs/handlebars/handlebars.js" type="text/javascript"></script>
 
+
 </head>
 
   <body>
-
-    {{user.username}}
-
       <nav class="navbar navbar-default" style="background-color:#2D3E50; border-color: #2D3E50;" role="navigation">
       <div class="container">
         <div class="container-fluid">
@@ -48,9 +46,7 @@
               <li>
                 {{#if user}}
                 <p class="navbar-text">
-                  <strong>Hi,</strong> 
-                  <img src="{{user.avatar}}" width="20" height="20"> 
-                  {{user.username}}
+                  Hi {{user.username}}
                 </p>
               </li>
             </ul>
@@ -90,7 +86,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="/javascript/mapbox.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/javascript/mapbox.js" type="text/javascript"></script>    
 
   </body>
 </html>
