@@ -24,7 +24,8 @@ var UserSchema = new mongoose.Schema({
     street: { type: String, required: true },
     city: { type: String, required: true },
     province: { type: String, required: true },
-    postalCode: { type: String, required: true }
+    lat: { type: Number }, 
+    lng: { type: Number }
   },
   role: {
     type: String,
