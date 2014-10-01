@@ -61,4 +61,7 @@ $.getJSON(API_ENDPOINT
     }
 
 });
+$(document).ready(function(){
+  $('#local-reg').on('show.bs.collapse', function () { map._onResize(); })
+})
 

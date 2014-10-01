@@ -4,6 +4,39 @@ html, body {
   height: 100%;
 }
 
+@media screen and (min-width: 769px) {
+  .background{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: url("../photos/shiftable1.png") center center no-repeat;
+    background-size: 400px 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .background{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: url("../photos/shiftabletwo.png") center center no-repeat;
+  background-size: 240px 240px;
+  }
+}
+
+.content-subhead{
+  text-align: center;
+  height: 8em;
+  display: block;
+  width: 100%;
+  font-size: 3em;
+  position: relative;
+}
+
 #details{
   padding:5px;
 }
@@ -22,28 +55,60 @@ html, body {
   padding:10px;
 }
 
-#map {  
-  height: 50em;
-  width: 45em;
+.dhx_month_body{
+  background-color:#8AB3BF;
 }
 
-.navbar.navbar-default{
-  z-index: 4;
+.dhx_month_head{
+  background-color:#8AB3BF;
 }
 
 #local{
   margin-left: 23em;
 }
 
-#phone{
-  margin-left: 50%;
-  max-width: 100%;
-  z-index: 999;
+.logbtn{
+  margin-bottom: 2em;
+}
+
+.login{
+  border:none;
+  font-size: 40%;
+  line-height: 0em;
+  display: inline-block;
+  margin-top: 7em;
+}
+
+#loginbutton{
+  background-color: white;
+  border: none;
+  margin-left: 800px;
+  line-height: 20px;
+}
+
+.login-form{
+
+}
+
+.login-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+.login-splash{
+  width: 80%;
+  height: 50%;
+  margin: auto;
   position: absolute;
-  display: block;
-  top: -90px;
-  right: 0px;
-  height: 600px;
+  top: 25em; left: 0; bottom: 0; right: 0;
+  text-align: center;
+}
+
+#map {  
+  position:relative; 
+  height: 100%;
+  width: 100%;
 }
 
 .mobile{
@@ -52,13 +117,102 @@ html, body {
   color: white;
 }
 
-.content-subhead{
-  text-align: center;
-  height: 8em;
+.navbar.navbar-default{
+  z-index: 4;
+}
+
+#phone{
+  margin-left: 50%;
+  max-width: 100%;
+  z-index: 999;
+  position: absolute;
   display: block;
-  width: 100%;
-  font-size: 3em;
+  top: -55px;
+  right: 0px;
+  height: 600px;
+}
+
+.pure-checkbox{
+  display: block;
+}
+
+.pure-form{
+  display: inline-block;
   position: relative;
+  margin-top: -4.5em;
+}
+
+.pure-g{
+  display: inline-block;
+}
+
+#scheduler{
+  left: 50px;
+}
+
+#shiftbutton{
+  height: 50px;
+  width: 50px;
+  background: url("../photos/shiftwhite.png") center center no-repeat;
+  background-size: cover;
+  border: none;
+}
+
+#shiftlogo{
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+#shiftmap{
+  width: 650px;
+  height: 600px;
+  margin-left: 600px;
+}
+
+.shifts{
+  margin-top: 4em;
+  width: 100%;
+}
+
+#signup{
+  height: auto;
+}
+
+.splash{
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 10em; left: 0; bottom: 0; right: 0;
+  text-align: center;
+}
+
+.splash-head{
+  margin-top: -2em;
+  height: 100%;
+  width: 38%;
+  margin-left: 7em;
+  border: none;
+}
+
+/*.splash-head-text{
+  font-family: Indie Flower;
+  font-size: 1.50em;
+  margin-left: -0.75em;
+  margin-top: -0.2em;
+  color: white;
+  max-width: 100%;
+}*/
+
+.splash-container{
+  width: 100%;
+  height: 100%;
+  background-repeat: none;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  position: absolute !important;
 }
 
 .title{
@@ -76,108 +230,8 @@ video#bgvid, iframe#bgvid {
   background-size: cover;
 }
 
-.splash-head{
-  margin-top: -2em;
-  height: 100%;
-  width: 38%;
-  margin-left: 7em;
-  border: none;
-}
-
-#shiftlogo{
-  max-width: 100%;
-}
-
-.splash-head-text{
-  font-family: Indie Flower;
-  font-size: 1.50em;
-  margin-left: -0.75em;
-  margin-top: -0.2em;
-  color: white;
-  max-width: 100%;
-}
-
-.splash-container{
-  width: 100%;
-  height: 100%;
-  background-repeat: none;
-  background-size: cover;
-  top: 0;
-  left: 0;
-  position: absolute !important;
-}
-
-.splash{
-  width: 80%;
-  height: 50%;
-  margin: auto;
-  position: absolute;
-  top: 10em; left: 0; bottom: 0; right: 0;
-  text-align: center;
-}
-
-.login-splash{
-  width: 80%;
-  height: 50%;
-  margin: auto;
-  position: absolute;
-  top: 25em; left: 0; bottom: 0; right: 0;
-  text-align: center;
-}
-#shiftlogo{
-  position: relative;
-  margin: 0 auto;
-}
-
 #whiteshiftlogo{
   height: auto;
   position: relative;
   margin: 0 auto;
-}
-
-.pure-g{
-  display: inline-block;
-}
-
-.shifts{
-  margin-top: 4em;
-  width: 100%;
-}
-
-.pure-form{
-  display: inline-block;
-  position: relative;
-  margin-top: -4.5em;
-}
-
-.pure-checkbox{
-  display: block;
-}
-
-#loginbutton{
-
-}
-
-.login-form{
-
-}
-
-.login-form label {
-  margin: 1em 0 0;
-  font-weight: bold;
-  font-size: 80%;
-}
-
-.login{
-  border:none;
-  font-size: 40%;
-  line-height: 0em;
-  display: inline-block;
-  margin-top: 7em;
-}
-
-#map { 
-  position:relative; 
-  height: 1000px;
-  width: 1000px;
 }
