@@ -435,6 +435,11 @@ html, body {
   left: 50px;
 }
 
+#shift-container{
+  display: inline-block;
+  float: left;
+}
+
 #shiftbutton{
   height: 3em;
   width: 3em;
@@ -453,7 +458,7 @@ html, body {
 #shiftmap{
   width: 650px;
   height: 600px;
-  margin-left: 600px;
+  float: right;
 }
 
 .shifts{

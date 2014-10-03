@@ -2604,7 +2604,7 @@ scheduler._render_v_bar = function (a, b, c, d, e, f, g, h, k) {
             r = '<div class="dhx_event_move dhx_header" style=" width:' + (d - 6) + "px;" + m + '" >&nbsp;</div>';
         r += '<div class="dhx_event_move dhx_title" style="' + m + "" + o + '">' + g + "</div>";
         var old_height = e - (this._quirks ? 20 : 30) + 1;
-        var new_height = (old_height == 55) ? 75 : old_height ;
+        var new_height = (old_height == 55 || 35) ? old_height + 10 : old_height ;
 
         r += '<div class="dhx_body" style=" width:' + "px; height:" + new_height + "px;" + m + "" + o + '">' + h + "</div>";
         var s = "dhx_event_resize dhx_footer";

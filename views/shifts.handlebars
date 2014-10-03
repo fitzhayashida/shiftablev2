@@ -1,28 +1,28 @@
 <div class="shifts">
 
-<h1>Shifts to Give Away</h1>
+  <h1>Shifts to Give Away</h1>
 
-<script id="shift-template" type="text/x-handlebars-template">
+  <script id="shift-template" type="text/x-handlebars-template">
 
-  <li>\{{role}}
-  <br>\{{start_date_text}} &mdash; \{{end_date_text}}
-  <br>\{{storeAddress.street}}, \{{storeAddress.city}}, \{{storeAddress.province}}
-  <br>Notes: \{{text}}
-  <br><button class="trigger">Email user</button></li>
-  <br>
+    <li>\{{role}}
+    <br>\{{start_date_text}} &mdash; \{{end_date_text}}
+    <br>\{{storeAddress.street}}, \{{storeAddress.city}}, \{{storeAddress.province}}
+    <br>Notes: \{{text}}
+    <br><button class="trigger">Email user</button></li>
+    <br>
 
-</script>
+  </script>
 
-<ol id="shift-container"></ul>
+  <ol id="shift-container"></ol>
 
 </div>
 
 <div id="shiftmap">
-<div id='map'></div>
+  <div id='map'></div>
 </div>
 
 <script>
-$.ajax({
+  $.ajax({
     url: '/api/shifts',
     type: 'GET',
     cache: false,
@@ -34,8 +34,8 @@ $.ajax({
       var markers = new L.MarkerClusterGroup({
         maxClusterRadius: 120,
         spiderfyOnMaxZoom: true
-        });
-      
+      });
+    
       data.map(function(o)
       {
         o.start_date_text = moment(o.start_date).format('MMMM Do YYYY, h:mm:ss a');
@@ -51,14 +51,14 @@ $.ajax({
       data.forEach(function(o)
       {
         var marker = L.marker([o.storeAddress.lat, o.storeAddress.lng], {
-            icon: L.mapbox.marker.icon({
-              'marker-color': '#9c89cc'
-            })
+          icon: L.mapbox.marker.icon({
+            'marker-color': '#9c89cc'
           })
-          .bindPopup('<span>' + o.company + ' (' + o.role + ')' + '<br>Start: ' + o.start_date_text + '<br>End: ' + o.end_date_text + '</span><br><button class="trigger" data-userId="' + o.userId + '">Take this Shift</button>')
+        })
+        .bindPopup('<span>' + o.company + ' (' + o.role + ')' + '<br>Start: ' + o.start_date_text + '<br>End: ' + o.end_date_text + '</span><br><button class="trigger" data-userId="' + o.userId + '">Take this Shift</button>')
 
         markers.addLayer(marker);
-  
+
       });
 
       map.addLayer(markers);
@@ -66,24 +66,24 @@ $.ajax({
     error: function() {
       console.error('error');
     },
-});
+  });
 
 
 
-$('#map').on('click', '.trigger', function() {
-  var userId = $(this).attr('data-userId');
-  console.log(userId);
+  $('#map').on('click', '.trigger', function() {
+    var userId = $(this).attr('data-userId');
+    console.log(userId);
     $.ajax({
-        type: "POST",
-        url: "/contact",
-        data: {
-          _id: userId
-        },
-        success: function(mail){
-          console.log("success");
-        }
+      type: "POST",
+      url: "/contact",
+      data: {
+        _id: userId
+      },
+      success: function(mail){
+        console.log("success");
+      }
     });
-});
+  });
 
 </script>
 
