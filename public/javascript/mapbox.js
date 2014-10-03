@@ -23,8 +23,6 @@ $(function(){
   map.touchZoom.disable();
   map.scrollWheelZoom.disable();
 
-  $('#local-reg').on('show.bs.collapse', function(){ map._onResize(); });
-
   // Credit Foursquare for their wonderful data
   map.attributionControl
     .addAttribution('<a href="https://foursquare.com/">Places data from Foursquare</a>');

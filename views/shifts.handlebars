@@ -8,7 +8,7 @@
     <br>\{{start_date_text}} &mdash; \{{end_date_text}}
     <br>\{{storeAddress.street}}, \{{storeAddress.city}}, \{{storeAddress.province}}
     <br>Notes: \{{text}}
-    <br><button class="trigger">Email user</button></li>
+    <br><button type="button" data-userId="\{{userId}}">Take This Shift!</button></li>
     <br>
 
   </script>
@@ -35,7 +35,7 @@
         maxClusterRadius: 120,
         spiderfyOnMaxZoom: true
       });
-    
+
       data.map(function(o)
       {
         o.start_date_text = moment(o.start_date).format('MMMM Do YYYY, h:mm:ss a');
@@ -46,6 +46,20 @@
       .forEach(function(html)
       {
         $("#shift-container").append($(html));
+      });
+
+      $('button').on('click', function() {
+          var userId = $(this).attr('data-userId');
+            $.ajax({
+                type: "POST",
+                url: "/contact",
+                data: {
+                  _id: userId
+                },
+                success: function(mail){
+                  console.log("success");
+                }
+            });
       });
 
       data.forEach(function(o)
@@ -68,22 +82,20 @@
     },
   });
 
-
-
   $('#map').on('click', '.trigger', function() {
     var userId = $(this).attr('data-userId');
     console.log(userId);
-    $.ajax({
-      type: "POST",
-      url: "/contact",
-      data: {
-        _id: userId
-      },
-      success: function(mail){
-        console.log("success");
-      }
+      $.ajax({
+        type: "POST",
+        url: "/contact",
+        data: {
+          _id: userId
+        },
+        success: function(mail){
+          console.log("success");
+        }
+      });
     });
-  });
 
 </script>
 
