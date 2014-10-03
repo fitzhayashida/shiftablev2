@@ -2,20 +2,20 @@
 var mongoose = require('mongoose');
 
 // Define our shift schema
-var ShiftSchema   = new mongoose.Schema({
+var ShiftSchema  = new mongoose.Schema({
   userId: { 
     type: String
     // required: true 
   },
   company: {
-    type: String,
-    required: true
+    type: String
   },
   storeAddress: {
     street: { type: String, required: true },
     city: { type: String, required: true },
     province: { type: String, required: true },
-    postalCode: { type: String, required: true }
+    lat: { type: Number },
+    lng: { type: Number }
   },
   text: { 
     type: String
@@ -27,9 +27,6 @@ var ShiftSchema   = new mongoose.Schema({
   end_date: {
     type: Date
     // required: true
-  },
-  state: {
-    type: String
   }
 });
 

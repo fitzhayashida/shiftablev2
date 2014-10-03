@@ -1,25 +1,79 @@
 <div class="shifts">
-<script id="t" type="text/x-handlebars-template">
-
-<div>
 
 <h1>Shifts to Give Away</h1>
 
-<script id="shift-template" type="text/x-handlebars-template">
-    <ul>
-        {{#each shift}}
-            <li>{{username}}</li>
-        {{/each}}
-    </ul>
+<script id="test-template" type="text/x-handlebars-template">
+  <h1>name=\{{name}}</h1>
 </script>
+
+<script id="shift-template" type="text/x-handlebars-template">
+  <li>\{{start_date_text}} &mdash; \{{end_date_text}}</li>
+</script>
+<!-- <li>\{{start_date}} - \{{end_date}}: \{{storeAddress.street}}, \{{storeAddress.city}}, \{{storeAddress.province}}
+            </li> -->
+
+<ul id="shift-container"></ul>
 
 
 </div>
-<!-- <div id='map' style="height=300px; width=300px"></div> -->
 
 <div id="shiftmap">
 <div id='map'></div>
 </div>
 
-<script src="/javascript/mapbox.js" type="text/javascript"></script>
-</div>
+<script>
+$.ajax({
+    url: '/api/shifts',
+    type: 'GET',
+    cache: false,
+    dataType: "json",
+    success: function(data)
+    {
+      var template = Handlebars.compile($("#shift-template").html());
+      var geocoder = L.mapbox.geocoder('mapbox.places-v1');
+      
+      data.map(function(o)
+      {
+        o.start_date_text = moment(o.start_date).format('MMMM Do YYYY, h:mm:ss a');
+        o.end_date_text = moment(o.end_date).format('MMMM Do YYYY, h:mm:ss a');
+        return o;
+      })
+      .map(template)
+      .forEach(function(html)
+      {
+        $("#shift-container").append($(html));
+      });
+
+
+      data.forEach(function(o)
+      {
+        geocoder.query()
+        var marker = L.marker([43.6475, -79.3838], {
+              icon: L.mapbox.marker.icon({
+                'marker-color': '#9c89cc'
+              })
+            })
+            .bindPopup('<span>' + o.text + '</span><br/><button class="trigger">Say hi</button>')
+            .addTo(map);
+      });
+    },
+    error: function() {
+      console.error('error');
+    },
+});
+
+// L.mapbox.accessToken = 'pk.eyJ1IjoidGVyZXNhdG8iLCJhIjoiVWVQcjhJSSJ9.7oafI4-yF63mwYefbm7VkQ';
+// var map = L.mapbox.map('map', 'examples.map-i86nkdio')
+//     .setView([43.6475, -79.3838], 14);
+
+
+
+// // The HTML we put in bindPopup doesn't exist yet, so we can't just say
+// // $('#mybutton'). Instead, we listen for click events on the map element which
+// // will bubble up from the tooltip, once it's created and someone clicks on it.
+// $('#map').on('click', '.trigger', function() {
+//     alert('Hello from Toronto!');
+// });
+
+</script>
+
