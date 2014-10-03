@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/css/pure-layout.css" type="text/css">
   <link rel="stylesheet" href="/css/stylesheet.css" type="text/css">
   <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Gloria+Hallelujah|Indie+Flower|Dancing+Script' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Handlee|Pathway+Gothic+One|Lobster+Two:700|Architects+Daughter' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
   <script src="/libs/moment/moment.js" type="text/javascript" charset="utf-8"></script>
@@ -43,9 +44,9 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {{#if user}}
             <ul class="nav navbar-nav">
               <li>
-                {{#if user}}
                 <p class="navbar-text">
                   <strong>Hi,</strong> 
                   <img src="{{user.avatar}}" width="20" height="20"> 
@@ -62,7 +63,6 @@
               <button type="submit" id="shiftbutton"><a href="/"></a></button>
               <button type="submit" class="btn btn-default" id="loginbutton"><a href="#signup">Log In / Sign up</a></button>
             {{/if}}
-            </ul>
           </div>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

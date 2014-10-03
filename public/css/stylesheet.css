@@ -6,7 +6,7 @@ html, body {
 
 @media screen and (min-width: 769px) {
   .background{
-    top: 0;
+    top: -8em;
     right: 0;
     bottom: 0;
     left: 0;
@@ -16,9 +16,21 @@ html, body {
   }
 }
 
+@media screen and (max-width: 1025px) {
+  .background{
+    top: -8em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: url("../photos/shiftable1.png") center center no-repeat;
+    background-size: 300px 200px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .background{
-  top: 0;
+  top: -8em;
   right: 0;
   bottom: 0;
   left: 0;
@@ -35,6 +47,17 @@ html, body {
   width: 100%;
   font-size: 3em;
   position: relative;
+}
+
+@media screen and (max-width: 506px) {
+  .content-subhead{
+    text-align: center;
+    height: 10em;
+    display: block;
+    width: 100%;
+    font-size: 3em;
+    position: relative;
+  }
 }
 
 #details{
@@ -63,8 +86,18 @@ html, body {
   background-color:#8AB3BF;
 }
 
+.footer{
+  height: 10em;
+}
+
+#liner2{
+  font-family: Indie Flower;
+  color: #C7C3B7;
+  font-size: 1.5em;
+}
+
 #local{
-  margin-left: 23em;
+  margin-left: 30%;
 }
 
 .logbtn{
@@ -82,8 +115,10 @@ html, body {
 #loginbutton{
   background-color: white;
   border: none;
-  margin-left: 800px;
-  line-height: 20px;
+  display: inline-block;
+  line-height: 1em;
+  margin-top: 1em;
+  float: right;
 }
 
 .login-form{
@@ -117,8 +152,159 @@ html, body {
   color: white;
 }
 
+@media screen and (max-width: 1000px) {
+  .mobile{
+    font-family: Indie Flower;
+    font-size: 1em;
+    color: white;
+    width: 15em;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .mobile{
+    font-family: Indie Flower;
+    font-size: 1em;
+    color: white;
+    width: 10em;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .mobile{
+    font-family: Indie Flower;
+    font-size: 1em;
+    color: white;
+    width: 5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mobile{
+    font-family: Indie Flower;
+    font-size: 1em;
+    color: white;
+    width: 2em;
+  }
+}
+
+#mobiletext{
+  font-size: 0.5em;
+  width: 30em;
+  color: #C7C3B7;
+  margin-top: 2.5em;
+  margin-left: 8em;
+}
+
+@media screen and (max-width: 1246px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 30em;
+    color: #C7C3B7;
+    margin-top: 2.5em;
+    margin-left: 8em;
+  }
+}
+
+@media screen and (max-width: 1198px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 30em;
+    color: #C7C3B7;
+    margin-top: 2.5em;
+    margin-left: 6em;
+  }
+}
+
+@media screen and (max-width: 1149px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 25em;
+    color: #C7C3B7;
+    margin-top: 2.5em;
+    margin-left: 6em;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 20em;
+    color: #C7C3B7;
+    margin-top: 2.5em;
+    margin-left: 6em;
+  }
+}
+
+@media screen and (max-width: 928px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 15em;
+    color: #C7C3B7;
+    margin-top: 0.5em;
+    margin-left: 6em;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 20em;
+    color: #C7C3B7;
+    margin-top: 0.5em;
+    margin-left: -1em;
+  }
+}
+
+@media screen and (max-width: 665px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 15em;
+    color: #C7C3B7;
+    margin-top: 0.5em;
+    margin-left: -1em;
+  }
+}
+
+@media screen and (max-width: 564px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 12em;
+    color: #C7C3B7;
+    margin-top: 0.5em;
+    margin-left: -1em;
+  }
+}
+
+@media screen and (max-width: 506px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 12em;
+    color: #C7C3B7;
+    margin-top: 0.5em;
+    margin-left: -1em;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #mobiletext{
+    font-size: 0.5em;
+    width: 11em;
+    color: #C7C3B7;
+    margin-top: 0.5em;
+    margin-left: -1em;
+  }
+}
+
 .navbar.navbar-default{
   z-index: 4;
+  max-height: 3.4em;
+}
+
+#oneliner{
+  font-size: 3em;
+  font-family: Pathway Gothic One;
+  color: #C7C3B7;
 }
 
 #phone{
@@ -130,6 +316,105 @@ html, body {
   top: -55px;
   right: 0px;
   height: 600px;
+}
+
+@media screen and (max-width: 1149px) {
+  #phone{
+    margin-left: 50%;
+    max-width: 100%;
+    z-index: 999;
+    position: absolute;
+    display: block;
+    top: -55px;
+    right: 0px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 506px) { 
+  #phone{
+    margin-left: 50%;
+    max-width: 100%;
+    z-index: 999;
+    position: absolute;
+    display: block;
+    top: -55px;
+    right: 0px;
+    height: 400px;
+  }
+}
+
+#phonevid{
+  position: absolute; 
+  right: 1em; 
+  bottom: -2em;
+  min-width: 4.3em; 
+  min-height: 10em; 
+  height:15px;
+  z-index: 800;
+  background-size: cover;
+  -webkit-transform: rotate(-3deg) skew(-3deg, -4deg);
+  -moz-transform: rotate(-20deg) skew(15deg, 15deg);
+}
+
+@media screen and (max-width: 1149px) {
+  #phonevid{
+    position: absolute; 
+    right: 0.9em; 
+    bottom: 1.2em;
+    min-width: 3.5em; 
+    min-height: 5.8em; 
+    height: 8px;
+    z-index: 800;
+    background-size: cover;
+    -webkit-transform: rotate(-3deg) skew(-3deg, -4deg);
+    -moz-transform: rotate(-20deg) skew(15deg, 15deg);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  #phonevid{
+    position: absolute; 
+    right: 0.8em; 
+    bottom: 0.2em;
+    min-width: 3.6em; 
+    min-height: 8em; 
+    height:13px;
+    z-index: 800;
+    background-size: cover;
+    -webkit-transform: rotate(-3deg) skew(-3deg, -4deg);
+    -moz-transform: rotate(-20deg) skew(15deg, 15deg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #phonevid{
+    position: absolute; 
+    right: 1em; 
+    bottom: -0.9em;
+    min-width: 4.4em; 
+    min-height: 8em; 
+    height:13px;
+    z-index: 800;
+    background-size: cover;
+    -webkit-transform: rotate(-3deg) skew(-3deg, -4deg);
+    -moz-transform: rotate(-20deg) skew(15deg, 15deg);
+  }
+}
+
+@media screen and (max-width: 506px) {
+  #phonevid{
+    position: absolute; 
+    right: 0.8em; 
+    bottom: 2.5em;
+    min-width: 3.5em; 
+    min-height: 8em; 
+    height: 10px;
+    z-index: 800;
+    background-size: cover;
+    -webkit-transform: rotate(-3deg) skew(-3deg, -4deg);
+    -moz-transform: rotate(-20deg) skew(15deg, 15deg);
+  }
 }
 
 .pure-checkbox{
@@ -151,11 +436,12 @@ html, body {
 }
 
 #shiftbutton{
-  height: 50px;
-  width: 50px;
+  height: 3em;
+  width: 3em;
   background: url("../photos/shiftwhite.png") center center no-repeat;
   background-size: cover;
   border: none;
+  display: inline-block;
 }
 
 #shiftlogo{
@@ -213,6 +499,10 @@ html, body {
   top: 0;
   left: 0;
   position: absolute !important;
+}
+
+#text{
+  margin-top: 14em;
 }
 
 .title{
