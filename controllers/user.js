@@ -24,10 +24,16 @@ exports.postUsers = function(req, res) {
   });
 
   user.save(function(err) {
-    if (err){
-      res.send(err);
+    if(err) {
+      console.log(err);
     } else {
-      res.redirect('/users');
+      console.log('user: ' + user.email + " saved.");
+      req.login(user, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        return res.redirect('/users');
+      });
     }
   });
 };

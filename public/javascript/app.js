@@ -9,7 +9,7 @@ $(function(){
   scheduler.templates.xml_date = function(value){
     return new Date(value);
   };
-  scheduler.load('/api/shifts', 'json');
+  scheduler.load('/api/shifts/user', 'json');
     
 
   var add_event = function(id,ev){

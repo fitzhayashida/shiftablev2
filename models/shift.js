@@ -4,11 +4,16 @@ var mongoose = require('mongoose');
 // Define our shift schema
 var ShiftSchema  = new mongoose.Schema({
   userId: { 
-    type: String
-    // required: true 
+    type: String,
+    required: true 
   },
   company: {
-    type: String
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    required: true
   },
   storeAddress: {
     street: { type: String, required: true },
@@ -21,12 +26,12 @@ var ShiftSchema  = new mongoose.Schema({
     type: String
   },
   start_date: { 
-    type: Date
-    // required: true
+    type: Date,
+    required: true
   },
   end_date: {
-    type: Date
-    // required: true
+    type: Date,
+    required: true
   }
 });
 

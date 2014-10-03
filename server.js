@@ -9,6 +9,7 @@ var exphbs  = require('express-handlebars');
 var shiftController = require('./controllers/shift');
 var userController = require('./controllers/user');
 var authController = require('./controllers/auth');
+var mailController = require('./controllers/mail');
 
 
 // Connect to the user MongoDB
@@ -50,9 +51,11 @@ router.route('/shifts')
 
 // Create endpoint handlers for /shifts/:shift_id
 router.route('/shifts/:shift_id')
-  .get(shiftController.getShift)
   .put(shiftController.putShift)
   .delete(shiftController.deleteShift);
+
+router.route('/shifts/user')
+  .get(shiftController.getShiftsbyUser);
 
 // Create endpoint handlers for /users
 router.route('/users')
@@ -61,7 +64,6 @@ router.route('/users')
 
 // router.route('/users/:user_id')
 //   .delete(userController.deleteUser);
-
 
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public')); 
@@ -72,21 +74,16 @@ app.use('/api', router);
 // //===============ROUTES=================
 // //displays our homepage
 app.get('/', function (req, res){
-  res.render('home');
+  res.render('home', { user: req.user });
 });
 
 //displays the shift page
 app.get('/shifts', function (req, res){
-  res.render('shifts');
+  res.render('shifts', { user: req.user });
 });
 
 app.get('/users', function (req, res){
   res.render('user', { user: req.user });
-});
-
-//displays our signup page
-app.get('/signin', function(req, res){
-  res.render('signin');
 });
 
 //sends the request through our local signup strategy, and if successful takes user to homepage, otherwise returns then to signin page
@@ -102,12 +99,14 @@ app.post('/login', passport.authenticate('local-login', {
 //logs user out of site, deleting them from the session, and returns to homepage
 app.get('/logout', function(req, res){
   var name = req.user.username;
-  console.log("Logging out" + req.user.username)
+  console.log("Logging out" + " " + req.user.username);
   req.logout();
   res.redirect('/');
   req.session.notice = "You have successfully been logged out " + name + "!";
 });
 
+//sends the request to email user
+app.post('/contact', mailController.contact);
 
 // Start the server
 app.listen(port);

@@ -36,34 +36,6 @@ passport.use('local-login', new LocalStrategy(
   }
 ));
 
-// passport.use('local-signup', new LocalStrategy(
-//   function(){
-//     var user = new User({
-//       username: req.body.username,
-//       name: {
-//         first: req.body.first,
-//         last: req.body.last
-//       },
-//       email: req.body.email,
-//       company: req.body.company,
-//       storeAddress: {
-//         street: req.body.street,
-//         city: req.body.city,
-//         province: req.body.province,
-//         postalCode: req.body.postalCode
-//       },
-//       role: req.body.role,
-//       password: req.body.password
-//     });
-
-//     user.save(function(err) {
-//       if (err){
-//         res.send(err);
-//       } else {
-//         res.json({ message: 'User successfully created' });
-//       }
-//     });
-// })
 
 exports.isAuthenticated = passport.authenticate('local', { failureRedirect: '/users' });
 

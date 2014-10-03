@@ -15,7 +15,6 @@ exports.postShifts = function(req, res) {
   shift.start_date = req.body.start_date;
   shift.end_date = req.body.end_date;
 
-  console.log(shift);
   // Save the shift and check for errors
   shift.save(function(err) {
     if (err){
@@ -29,7 +28,7 @@ exports.postShifts = function(req, res) {
 // Create endpoint /api/shifts for GET
 exports.getShifts = function(req, res) {
   // Use the shift model to find all shift
-  Shift.find({}, function(err, shifts) {
+  Shift.find({ company: req.user.company }, function(err, shifts) {
     if (err) 
       res.send(err);
     for(var i = 0; i < shifts.length; i++) {
@@ -40,9 +39,9 @@ exports.getShifts = function(req, res) {
 };
 
 // Create endpoint /api/shifts/:shift_id for GET
-exports.getShift = function(req, res) { 
+exports.getShiftsbyUser = function(req, res) { 
   // Use the shift model to find a specific shift
-  Shift.find({ userId: req.user._id, _id: req.params.shift_id }, function(err, shift) {
+  Shift.find({ userId: req.user._id }, function(err, shift) {
     if (err)
       res.send(err);
 
@@ -67,8 +66,8 @@ exports.putShift = function(req, res) {
       if (err) {
         res.send(err);
       } else {
-      res.json(shift);
-    }
+        res.json(shift);
+      }
     });
   });
 };
